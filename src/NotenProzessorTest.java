@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NotenProzessorTest {
-
+//nichtAusreichendeNoten Tests
     @Test
     void nichtAusreichendeNoten() {
         NotenProzessor notenProzessor = new NotenProzessor();
@@ -14,6 +14,15 @@ class NotenProzessorTest {
 
     }
 
+    @Test
+    void nichtAusreichendeNotenUnerwartetet() {
+        NotenProzessor notenProzessor = new NotenProzessor();
+        int[] note = {50, 110, 30, 70, 45}; //note ist uber 100
+        assertThrows(IllegalArgumentException.class, () -> {
+            notenProzessor.nichtAusreichendeNoten(note);
+        });
+    }
+//round Tests
     @Test
     void round() {
         NotenProzessor notenProzessor = new NotenProzessor();
@@ -26,6 +35,14 @@ class NotenProzessorTest {
         assertEquals(46, roundedValue3);
         assertEquals(51, roundedValue4);
     }
+   @Test
+   void roundUnexpected() {
+       NotenProzessor notenProzessor = new NotenProzessor();
+       int noten = -23;
+       assertThrows(IllegalArgumentException.class, () -> {
+           NotenProzessor.round( noten);
+      });
+   }
 
     @Test
     void addToArray() {
@@ -38,11 +55,40 @@ class NotenProzessorTest {
     }
 
     @Test
+    void addToArray_NullInputArray() {
+        NotenProzessor notenProzessor = new NotenProzessor();
+        int[] original = null;
+        int newElement = 60;
+        assertThrows(IllegalArgumentException.class, () -> {
+            notenProzessor.addToArray(original, newElement);
+        });
+    }
+
+
+    @Test
     void durchscnitsWert() {
         NotenProzessor notenProzessor = new NotenProzessor();
         int[] noten = {60, 75, 85, 92, 70};
         int durchschnitt = notenProzessor.durchscnitsWert(noten);
         assertEquals(76, durchschnitt);
+    }
+
+    @Test
+    void durchschnitsWertUnerwartet() {
+        NotenProzessor notenProzessor = new NotenProzessor();
+        int[] note = {75, 150, 30, 70, 45}; //note ist uber 100
+        assertThrows(IllegalArgumentException.class, () -> {
+            notenProzessor.nichtAusreichendeNoten(note);
+        });
+    }
+
+    @Test
+    void maximaleAbgerundeteNoteUnerwartetet() {
+        NotenProzessor notenProzessor = new NotenProzessor();
+        int[] noten = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+            notenProzessor.maximaleAbgerundeteNote(noten);
+        });
     }
 
     @Test
