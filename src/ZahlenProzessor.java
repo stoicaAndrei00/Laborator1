@@ -1,5 +1,9 @@
 public class ZahlenProzessor {
     public static int findeMaxZahl(int[] zahlen) {
+        if (zahlen == null || zahlen.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
         int max = Integer.MIN_VALUE;
         for (int num : zahlen) {
             if (num > max) {
@@ -10,6 +14,10 @@ public class ZahlenProzessor {
     }
 
     public static int findeMinZahl(int[] zahlen) {
+
+        if (zahlen == null || zahlen.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
         int min = Integer.MAX_VALUE;
         for (int num : zahlen) {
             if (num < min) {
@@ -20,6 +28,11 @@ public class ZahlenProzessor {
     }
 
     public static int findeMaxSum(int[] zahlen) {
+
+        if (zahlen == null || zahlen.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
         int totalSum = 0;
         int minZahl = Integer.MAX_VALUE;
         for (int num : zahlen) {
@@ -32,6 +45,11 @@ public class ZahlenProzessor {
     }
 
     public static int findeMinSum(int[] zahlen) {
+
+        if (zahlen == null || zahlen.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
         int totalSum = 0;
         int maxZahl = Integer.MIN_VALUE;
         for (int num : zahlen) {
@@ -43,3 +61,5 @@ public class ZahlenProzessor {
         return totalSum - maxZahl;
     }
 }
+
+//commit2
