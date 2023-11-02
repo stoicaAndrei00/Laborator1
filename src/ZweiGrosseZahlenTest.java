@@ -14,6 +14,14 @@ class ZweiGrosseZahlenTest {
         int[] result = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         assertEquals(Arrays.toString(result), Arrays.toString(summe));
     }
+    @Test
+    void addiereUnexpected() {
+        int[] num1 = {};
+        int[] num2 = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+            ZweiGrosseZahlen.addiere(num1,num2);
+        });
+    }
 
     @Test
     void subtrahiere() {
@@ -22,6 +30,14 @@ class ZweiGrosseZahlenTest {
         int[] differenz = ZweiGrosseZahlen.subtrahiere(num2, num1);
         int[] result = {7, 4, 0, 0, 0, 0, 0, 0, 0};
         assertEquals(Arrays.toString(result), Arrays.toString(differenz));
+    }
+    @Test
+    void subrahiereUnexpected() {
+        int[] num1 = {};
+        int[] num2 = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+            ZweiGrosseZahlen.subtrahiere(num1,num2);
+        });
     }
 
     @Test
@@ -33,10 +49,30 @@ class ZweiGrosseZahlenTest {
     }
 
     @Test
+    void multipliziereUnexpected() {
+        int[] num1 = null;
+        int ziffer = 2;
+        assertThrows(IllegalArgumentException.class, () -> {
+            ZweiGrosseZahlen.multipliziere(num1,ziffer);
+        });
+    }
+
+    @Test
     void dividiere() {
         int[] num1 = {1, 3, 0, 0, 0, 0, 0, 0, 0};
         int[] division = ZweiGrosseZahlen.dividiere(num1, 2);
         int[] result = {0, 6, 5, 0, 0, 0, 0, 0, 0};
         assertEquals(Arrays.toString(result), Arrays.toString(division));
     }
+
+    @Test
+    void dividiereUnexpected() {
+        int[] num1 = null;
+        int ziffer = 2;
+        assertThrows(IllegalArgumentException.class, () -> {
+            ZweiGrosseZahlen.dividiere(num1,ziffer);
+        });
+    }
 }
+
+//commit3

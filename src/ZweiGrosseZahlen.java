@@ -1,5 +1,17 @@
 public class ZweiGrosseZahlen {
+
+
     public static int[] addiere(int[] num1, int[] num2) {
+
+        if (num1 == null || num1.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
+        if (num2 == null || num2.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
+
         int carry = 0;
         int[] ergebnis = new int[num1.length];
         for (int i = num1.length - 1; i >= 0; i--) {
@@ -17,6 +29,15 @@ public class ZweiGrosseZahlen {
     }
 
     public static int[] subtrahiere(int[] num1, int[] num2) {
+
+        if (num1 == null || num1.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
+        if (num2 == null || num2.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
         int borrow = 0;
         int[] ergebnis = new int[num1.length];
         for (int i = num1.length - 1; i >= 0; i--) {
@@ -33,6 +54,12 @@ public class ZweiGrosseZahlen {
     }
 
     public static int[] multipliziere(int[] num1, int ziffer) {
+
+        if (num1 == null || num1.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
+
         int carry = 0;
         int[] ergebnis = new int[num1.length];
         for (int i = num1.length - 1; i >= 0; i--) {
@@ -50,6 +77,11 @@ public class ZweiGrosseZahlen {
     }
 
     public static int[] dividiere(int[] num1, int divisor) {
+
+        if (num1 == null || num1.length == 0) {
+            throw new IllegalArgumentException("Array ist null oder leer.");
+        }
+
         int[] ergebnis = new int[num1.length];
         int rest = 0;
         for (int i = 0; i < num1.length; i++) {
@@ -60,3 +92,4 @@ public class ZweiGrosseZahlen {
         return ergebnis;
     }
 }
+//commit3
